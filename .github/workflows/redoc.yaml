@@ -19,7 +19,7 @@ jobs:
       - name: redoc-cli bundle
         uses: seeebiii/redoc-cli-github-action@v10
         with:
-          args: 'bundle https://customer-ui.eu-qa-2.credis.tech/customer/api/swagger/v1/swagger.json -o index.html'
+          args: 'bundle https://customer-ui.eu-qa-1.credis.tech/customer/api/swagger/v1/swagger.json -o index.html'
       - name: Push to github
         run: |
           git config --global user.name "GitHub CI"
