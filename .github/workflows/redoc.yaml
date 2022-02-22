@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       # then use redoc-cli-github-action to generate your HTML bundle
-      - name: redoc-cli bundle eu-qa-2
+      - name: redoc-cli bundle
         uses: seeebiii/redoc-cli-github-action@v10
         with:
           args: 'bundle https://customer-ui.eu-qa-2.credis.tech/customer/api/swagger/v1/swagger.json -o index.html'
