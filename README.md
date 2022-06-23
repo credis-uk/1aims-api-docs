@@ -1,2 +1,2 @@
 # 1aims-api-docs
-API docs for 1aims.io
+API docs for https://docs.1aims.io
