@@ -14,16 +14,24 @@ jobs:
       # first checkout your code
       - name: Checkout
         uses: actions/checkout@v2
+        
+      - name: Download JSON spec
+        run: |
+          wget https://integration-api.eu-qa-3.credis.tech/openbanking/api/swagger/1/swagger.json
+          
+      - name: Transform JSON spec
+        run: |
+          sed -i --regexp-extended 's/\(#([-a-z]+)\)/(#section\/\1)/ig' ./swagger.json
 
       # then use redoc-cli-github-action to generate your HTML bundle
       - name: redoc-cli bundle
         uses: seeebiii/redoc-cli-github-action@v10
         with:
-          args: 'bundle https://integration-api.eu-qa-3.credis.tech/openbanking/api/swagger/1/swagger.json -o index.html'
+          args: 'bundle ./swagger.json -o ./index.html'
       - name: Push to github
         run: |
           git config --global user.name "GitHub CI"
           git config --global user.email "githubci@c1aims.io"
-          git add .
+          git add ./index.html
           git commit -m "Update api docs"
           git push
