@@ -17,7 +17,7 @@ jobs:
         
       - name: Download JSON spec
         run: |
-          wget https://integration-api.eu-qa-3.credis.tech/openbanking/api/swagger/1/swagger.json
+          wget --timeout=30 https://integration-api.uk-sbx-1.credis.tech/openbanking/api/swagger/1/swagger.json
           
       - name: Transform JSON spec
         run: |
